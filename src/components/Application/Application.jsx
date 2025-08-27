@@ -34,8 +34,9 @@ const Application = () => {
     formData.append("jobId", id);
 
     try {
+      const API = import.meta.env.VITE_API_URL;
       const { data } = await axios.post(
-        "https://job-portal-backend-rk4c.onrender.com/api/v1/application/post",
+        `${API}/api/v1/application/post`,
         formData,
         {
           withCredentials: true,

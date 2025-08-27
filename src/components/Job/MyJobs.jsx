@@ -16,8 +16,9 @@ const MyJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
+        const API = import.meta.env.VITE_API_URL;
         const { data } = await axios.get(
-          "https://job-portal-backend-rk4c.onrender.com/api/v1/job/getmyjobs",
+          `${API}/api/v1/job/getmyjobs`,
           { withCredentials: true }
         );
         setMyJobs(data.myJobs);
@@ -46,8 +47,9 @@ const MyJobs = () => {
   //Function For Updating The Job
   const handleUpdateJob = async (jobId) => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
+    const API = import.meta.env.VITE_API_URL;
     await axios
-      .put(`https://job-portal-backend-rk4c.onrender.com/api/v1/job/update/${jobId}`, updatedJob, {
+      .put(`${API}/api/v1/job/update/${jobId}`, updatedJob, {
         withCredentials: true,
       })
       .then((res) => {
@@ -61,8 +63,9 @@ const MyJobs = () => {
 
   //Function For Deleting Job
   const handleDeleteJob = async (jobId) => {
+    const API = import.meta.env.VITE_API_URL;
     await axios
-      .delete(`https://job-portal-backend-rk4c.onrender.com/api/v1/job/delete/${jobId}`, {
+      .delete(`${API}/api/v1/job/delete/${jobId}`, {
         withCredentials: true,
       })
       .then((res) => {

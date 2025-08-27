@@ -29,9 +29,10 @@ const PostJob = () => {
       setSalaryTo("");
       setFixedSalary("");
     }
+    const API = import.meta.env.VITE_API_URL;
     await axios
       .post(
-        "https://job-portal-backend-rk4c.onrender.com/api/v1/job/post",
+        `${API}/api/v1/job/post`,
         fixedSalary.length >= 4
           ? {
               title,

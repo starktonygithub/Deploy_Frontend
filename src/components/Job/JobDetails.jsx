@@ -11,8 +11,9 @@ const JobDetails = () => {
   const { isAuthorized, user } = useContext(Context);
 
   useEffect(() => {
+    const API = import.meta.env.VITE_API_URL;
     axios
-      .get(`https://job-portal-backend-rk4c.onrender.com/api/v1/job/${id}`, {
+      .get(`${API}/api/v1/job/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

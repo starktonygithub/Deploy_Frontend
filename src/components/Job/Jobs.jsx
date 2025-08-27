@@ -9,8 +9,9 @@ const Jobs = () => {
   const navigateTo = useNavigate();
   useEffect(() => {
     try {
+      const API = import.meta.env.VITE_API_URL;
       axios
-        .get("https://job-portal-backend-rk4c.onrender.com/api/v1/job/getall", {
+        .get(`${API}/api/v1/job/getall`, {
           withCredentials: true,
         })
         .then((res) => {

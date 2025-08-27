@@ -22,8 +22,9 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        const API = import.meta.env.VITE_API_URL;
         const response = await axios.get(
-          "https://job-portal-backend-rk4c.onrender.com/api/v1/user/getuser",
+          `${API}/api/v1/user/getuser`,
           {
             withCredentials: true,
           }

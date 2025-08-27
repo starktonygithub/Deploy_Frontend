@@ -21,8 +21,9 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      const API = import.meta.env.VITE_API_URL;
       const { data } = await axios.post(
-        "https://job-portal-backend-rk4c.onrender.com/api/v1/user/register",
+        `${API}/api/v1/user/register`,
         { name, phone, email, role, password },
         {
           headers: {

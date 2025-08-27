@@ -12,8 +12,9 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
+      const API = import.meta.env.VITE_API_URL;
       const response = await axios.get(
-        "https://job-portal-backend-rk4c.onrender.com/api/v1/user/logout",
+        `${API}/api/v1/user/logout`,
         {
           withCredentials: true,
         }
